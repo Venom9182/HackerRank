@@ -1,0 +1,1 @@
+../contests/lambda-calculi-9/minimum-multiple.ml
