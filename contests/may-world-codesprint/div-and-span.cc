@@ -1,3 +1,5 @@
+// There are Catalan[X] ways to place brackets, 2*X+1 positions to place parentheses
+// Catalan's convolution
 #include <iostream>
 #include <type_traits>
 using namespace std;
