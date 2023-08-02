@@ -2,215 +2,133 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Standard Chartered Home</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-
-    .logo {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 100px; /* Adjust the width as needed */
-    }
 
     
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Standard Chartered - Login</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    
 
-    .services {
-      padding: 50px 0;
+    body {
+        background-image: url("https://av.sc.com/corp-en/content/images/SC-head-office-2022-scaled.jpg"); /* Sample background image URL */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-color: #f8f9fa; /* Fallback color in case the image doesn't load */
+      }
+      
+
+    .login-container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .services h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    .about {
-      padding: 50px 0;
-    }
-
-    .about h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    .contact {
-      padding: 50px 0;
-    }
-
-    .contact h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    .whats-new {
-      background-color: #f8f9fa;
-      padding: 50px 0;
-    }
-
-    .whats-new .row {
-      justify-content: space-between;
+    .login-container h2 {
+      text-align: center;
       margin-bottom: 30px;
     }
 
-    .whats-new .col {
-      flex-basis: calc(25% - 30px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .whats-new img {
-      max-width: 100%;
+    .form-group {
+      position: relative;
       margin-bottom: 20px;
     }
 
-    .footer {
-      background-color: #f8f9fa;
-      padding: 20px 0;
+    .form-group label {
+      font-weight: bold;
     }
 
-    .footer p {
-      font-size: 0.9em;
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      padding-left: 40px; /* To create space for the user and lock icons */
+      border: 1px solid #ccc;
+      border-radius: 3px;
     }
 
-    /* Customize the navigation bar color */
-    .navbar {
-      background-color: #f8f9fa;
+    .form-group .icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10px;
+      font-size: 18px;
+    }
+
+    .forgot-password {
+      text-align: center;
+    }
+
+    .forgot-password a {
+      color: #007bff;
+    }
+
+    .logo-container {
+      text-align: left;
+      margin-bottom: 30px;
+      margin-top: 10px;
+    }
+
+    .logo-container img {
+      max-width: 150px;
+    }
+
+    .welcome-message {
+      text-align: left;
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      margin-top: 200px;
     }
   </style>
 </head>
 
+  
 <body>
-  <!-- Header -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img class="logo" src="C:\Users\Acer\Downloads\Standard_Chartered_(2021).svg.png" alt="Standard Chartered Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="logo-container">
+          <img src="C:\Users\Acer\Downloads\Standard_Chartered_(2021).svg.png" alt="Standard Chartered Logo" class="img-fluid">
+        </div>
+        <div class="welcome-message">
+          Welcome to the RW Tools
         </div>
       </div>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src= "C:\Users\Acer\Downloads\in-platinum-cc-desktop-banner.webp" alt="Your Image 1">
-        </div>
-        <div class="carousel-item">
-          <img src= "C:\Users\Acer\Downloads\banner2.webp" alt="Your Image 2">
-        </div>
-        <div class="carousel-item">
-          <img src= "C:\Users\Acer\Downloads\banner3.avif" alt="Your Image 3">
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </a>
-    </div>
-    
-  </section>
-
-
-  <!-- What's New Section -->
-  <section class="whats-new">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <img src="C:\Users\Acer\Downloads\img1.avif" alt="NRI Banking Solutions">
-          <h3>NRI BANKING SOLUTIONS</h3>
-          <p>Explore our banking solutions tailored for NRIs.</p>
-          <a href="#" class="btn btn-link">Read More</a>
-        </div>
-        <div class="col">
-          <img src="C:\Users\Acer\Downloads\img2.avif" alt="Mutual Fund Investing">
-          <h3>MUTUAL FUND INVESTING</h3>
-          <p>Invest in mutual funds with ease and grow your wealth.</p>
-          <a href="#" class="btn btn-link">Read More</a>
-        </div>
-        <div class="col">
-          <img src="C:\Users\Acer\Downloads\img 4.avif" alt="Standard Chartered Rewards">
-          <h3>STANDARD CHARTERED REWARDS</h3>
-          <p>Earn rewards on your transactions and redeem them for exciting offers.</p>
-          <a href="#" class="btn btn-link">Read More</a>
-        </div>
-        <div class="col">
-          <img src="C:\Users\Acer\Downloads\img 6.webp" alt="Platinum Reward">
-          <h3>PLATINUM REWARD</h3>
-          <p>Unlock exclusive benefits with our Platinum Reward program.</p>
-          <a href="#" class="btn btn-link">Read More</a>
+      <div class="col-md-6">
+        <div class="login-container">
+          <h2 class="mb-4">Login</h2>
+          <form action="#" method="post"> <!-- Replace "#" with the actual login endpoint -->
+            <div class="form-group">
+              <label for="username">
+                <i class="icon fas fa-user"></i>
+                Username:
+              </label>
+              <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="password">
+                <i class="icon fas fa-lock"></i>
+                Password:
+              </label>
+              <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </form>
+          <div class="forgot-password mt-3">
+            <a href="#">Forgot Password?</a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Services Section -->
-  <section class="services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <p>We offer a wide range of banking and financial services to meet your needs.</p>
-      <!-- Add your service cards here -->
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>Learn more about our history, values, and commitment to our customers.</p>
-      <!-- Add your about content here -->
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <p>Get in touch with our customer support team for any inquiries or assistance.</p>
-      <!-- Add your contact form or contact information here -->
-    </div>
-  </section>
-
-  <!-- Footer Section -->
-  <footer class="footer">
-    <div class="container text-center">
-      <p>&copy; 2023 Standard Chartered. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Add Bootstrap and JavaScript links -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Add the Font Awesome icons link -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 
 </html>
