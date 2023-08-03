@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-
-    
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Standard Chartered - Login</title>
@@ -11,19 +9,10 @@
   <style>
     
 
-    body {
-        background-image: url("https://av.sc.com/corp-en/content/images/SC-head-office-2022-scaled.jpg"); /* Sample background image URL */
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-color: #f8f9fa; /* Fallback color in case the image doesn't load */
-      }
-      
-
     .login-container {
       max-width: 600px;
       margin: 100px auto;
-      padding: 20px;
+      padding: 40px;
       background-color: #fff;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -74,7 +63,7 @@
     }
 
     .logo-container img {
-      max-width: 150px;
+      max-width: 250px;
     }
 
     .welcome-message {
@@ -87,24 +76,26 @@
   </style>
 </head>
 
-  
 <body>
+  <body background="C:\Users\Acer\Downloads\bg new (1) (1).jpg"></body>
   <div class="container">
     <div class="row">
       <div class="col-md-6">
         <div class="logo-container">
-          <img src="C:\Users\Acer\Downloads\Standard_Chartered_(2021).svg.png" alt="Standard Chartered Logo" class="img-fluid">
+          <!-- The Standard Chartered logo will be displayed here from the <img> tag -->
+          <img src="C:\Users\Acer\Downloads\logo f 1.png" alt="Standard Chartered Logo" class="img-fluid">
         </div>
-        <div class="welcome-message">
+        <div class="welcome-message" style="color: white;">
           Welcome to the RW Tools
         </div>
       </div>
       <div class="col-md-6">
-        <div class="login-container">
+        <div class="login-container" style="background-color: #f2f2f2;">
           <h2 class="mb-4">Login</h2>
-          <form action="#" method="post"> <!-- Replace "#" with the actual login endpoint -->
+          <form action="#" method="post" style="text-align: center;"> <!-- Replace "#" with the actual login endpoint -->
             <div class="form-group">
               <label for="username">
+                <label for="username" style="font-family: 'com', sans-serif;"></label>
                 <i class="icon fas fa-user"></i>
                 Username:
               </label>
@@ -117,7 +108,7 @@
               </label>
               <input type="password" id="password" name="password" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" class="btn btn-primary" style="width: 300px; height: 40px;">Login</button>
           </form>
           <div class="forgot-password mt-3">
             <a href="#">Forgot Password?</a>
