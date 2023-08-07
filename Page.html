@@ -21,16 +21,17 @@
           <label for="lastName">Last name:</label>
           <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
         </div>
-        <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
+        <div class="row">
+          <div class="col">
+            <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-success" id="displayButton">Display JSON data</button>
+          </div>
+        </div>
       </form>
     </div>
     <div class="col-md-8">
-      <button type="button" class="btn btn-success mt-3" id="displayButton">Display JSON data</button>
-      <pre class="mt-3" id="jsonDataDisplay"></pre>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col">
       <h5>Formatted Output:</h5>
       <pre id="formattedOutput"></pre>
     </div>
@@ -64,8 +65,8 @@
       const jsonText = JSON.stringify(jsonData, null, 2);
       $("#jsonDataDisplay").text(jsonText);
 
-      const formattedOutput = jsonData.map(entry => `("FirstName":"${entry.firstName}", "LastName":"${entry.lastName}")`).join('');
-      $("#formattedOutput").text(formattedOutput);
+      const formattedOutput = jsonData.map(entry => `("FirstName":"${entry.firstName}", "LastName":"${entry.lastName}")`).join(',');
+      $("#formattedOutput").text(`[${formattedOutput}]`);
     });
   });
 </script>
