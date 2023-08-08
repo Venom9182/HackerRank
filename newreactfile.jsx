@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './Styles.css'; 
+import './Styles.css'; // Import your CSS file
 
 function App() {
   return (
@@ -20,7 +20,6 @@ function App() {
               <form action="#" method="post" style={{ textAlign: 'center' }}>
                 <div className="form-group">
                   <label htmlFor="username">
-                    <label htmlFor="username" style={{ fontFamily: 'com', sans-serif: '' }}></label>
                     <i className="icon fas fa-user"></i>
                     Username:
                   </label>
