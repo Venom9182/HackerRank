@@ -23,7 +23,11 @@ const Login = (props) => {
       setIsKeyboardOpen(false);
     } else {
       const typedKey = isUpperCase ? key.toUpperCase() : key;
-      setUsername(username + typedKey);
+      if (document.activeElement.id === 'username') {
+        setUsername(username + typedKey);
+      } else if (document.activeElement.id === 'password') {
+        setPassword(password + typedKey);
+      }
     }
   };
 
@@ -34,14 +38,6 @@ const Login = (props) => {
     ['upperCase', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'clear', 'space'],
     ['close'],
   ];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // You can use the 'username' and 'password' states here for further processing
-    console.log('Username:', username);
-    console.log('Password:', password);
-    // You can also perform API requests or other actions here
-  };
 
   return (
     <div className="App">
@@ -105,25 +101,33 @@ const Login = (props) => {
                   <a href="#">Forgot Password?</a>
                 </div>
               </form>
-              {isKeyboardOpen && (
-                <div className="virtual-keyboard">
-                  {keyboardLayout.map((row, rowIndex) => (
-                    <div key={rowIndex} className="keyboard-row">
-                      {row.map((key, keyIndex) => (
-                        <button
-                          key={keyIndex}
-                          className="keyboard-key"
-                          onClick={() => handleKeyPress(key)}
-                        >
-                          {key === 'upperCase' ? (isUpperCase ? 'abc' : 'ABC') : key}
-                        </button>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
+          {isKeyboardOpen && (
+            <div className="col-md-4 virtual-keyboard-container">
+              <div className="virtual-keyboard">
+                {keyboardLayout.map((row, rowIndex) => (
+                  <div key={rowIndex} className="keyboard-row">
+                    {row.map((key, keyIndex) => (
+                      <button
+                        key={keyIndex}
+                        className="keyboard-key"
+                        onClick={() => handleKeyPress(key)}
+                      >
+                        {key === 'upperCase' ? (isUpperCase ? 'abc' : 'ABC') : key}
+                      </button>
+                    ))}
+                  </div>
+                ))}
+              </div>
+              <button
+                className="close-keyboard-btn"
+                onClick={() => setIsKeyboardOpen(false)}
+              >
+                Close Keyboard
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
