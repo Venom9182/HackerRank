@@ -5,8 +5,8 @@ import logoImg from './logo f 1.png';
 const Login = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [showVirtualKeyboard, setShowVirtualKeyboard] = useState(false);
-  
+  const [isUpperCase, setIsUpperCase] = useState(false);
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
 
   const handleKeyPress = (key) => {
     if (key === 'clear') {
@@ -15,9 +15,15 @@ const Login = (props) => {
     } else if (key === 'backspace') {
       setUsername(username.slice(0, -1));
       setPassword(password.slice(0, -1));
+    } else if (key === 'upperCase') {
+      setIsUpperCase(!isUpperCase);
+    } else if (key === 'space') {
+      setUsername(username + ' ');
+    } else if (key === 'close') {
+      setIsKeyboardOpen(false);
     } else {
-      setUsername(username + key);
-      setPassword(password + key);
+      const typedKey = isUpperCase ? key.toUpperCase() : key;
+      setUsername(username + typedKey);
     }
   };
 
@@ -25,7 +31,8 @@ const Login = (props) => {
     ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'backspace'],
-    ['z', 'x', 'c', 'v', 'b', 'n', 'm', 'clear'],
+    ['upperCase', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'clear', 'space'],
+    ['close'],
   ];
 
   const handleSubmit = (e) => {
@@ -51,7 +58,6 @@ const Login = (props) => {
           <div className="col-md-6">
             <div className="login-container" style={{ backgroundColor: '#f2f2f2', float: 'right', float: 'top' }}>
               <h2 className="mb-4">Login</h2>
-              
               <form action="#" method="post" style={{ textAlign: 'center' }}>
                 <div className="form-group">
                   <label htmlFor="username">
@@ -87,43 +93,41 @@ const Login = (props) => {
                     />
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ width: '150px', height: '40px', backgroundColor: '#007bff', borderRadius: '7px' }}>
-                  Login
-                </button>
                 <button
-                  className="btn btn-secondary"
-                  style={{ marginLeft: '10px', borderRadius: '7px' }}
-                  onClick={() => setShowVirtualKeyboard(!showVirtualKeyboard)}
+                  type="button"
+                  className="btn btn-primary"
+                  style={{ width: '200px', height: '40px', backgroundColor: '#007bff', borderRadius: '7px' }}
+                  onClick={() => setIsKeyboardOpen(!isKeyboardOpen)}
                 >
-                  Virtual Keyboard
+                  Open Virtual Keyboard
                 </button>
+                <div className="forgot-password mt-4" style={{ marginTop: '10px' }}>
+                  <a href="#">Forgot Password?</a>
+                </div>
               </form>
-              <div className="forgot-password mt-4" style={{ marginTop: '10px' }}>
-                <a href="#">Forgot Password?</a>
-              </div>
+              {isKeyboardOpen && (
+                <div className="virtual-keyboard">
+                  {keyboardLayout.map((row, rowIndex) => (
+                    <div key={rowIndex} className="keyboard-row">
+                      {row.map((key, keyIndex) => (
+                        <button
+                          key={keyIndex}
+                          className="keyboard-key"
+                          onClick={() => handleKeyPress(key)}
+                        >
+                          {key === 'upperCase' ? (isUpperCase ? 'abc' : 'ABC') : key}
+                        </button>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
-      {showVirtualKeyboard && (
-        <div className="virtual-keyboard">
-          {keyboardLayout.map((row, rowIndex) => (
-            <div key={rowIndex} className="keyboard-row">
-              {row.map((key, keyIndex) => (
-                <button
-                  key={keyIndex}
-                  onClick={() => handleKeyPress(key)}
-                  className="keyboard-key"
-                >
-                  {key}
-                </button>
-              ))}
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
-}
+};
 
 export default Login;
