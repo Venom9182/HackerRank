@@ -2,13 +2,17 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  padding: 5px 15px;
   background-color: transparent;
-  border: none;
-  color: #007bff;
+  border: 2px solid #fff; /* Add a white border */
+  color: #fff; /* Set text color to white */
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Add transition effects */
 }
 
 .contact-button:hover {
-  text-decoration: underline;
+  background-color: #007bff; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
+  text-decoration: none; /* Remove underline on hover */
 }
