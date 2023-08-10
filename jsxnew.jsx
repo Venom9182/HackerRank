@@ -5,6 +5,7 @@ import logoImg from './logo f 1.png';
 const Login = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showVirtualKeyboard, setShowVirtualKeyboard] = useState(false);
 
   const handleKeyPress = (key) => {
     if (key === 'clear') {
@@ -88,26 +89,35 @@ const Login = (props) => {
                 <button type="submit" className="btn btn-primary" style={{ width: '200px', height: '40px', backgroundColor: '#007bff', borderRadius: '7px' }}>
                   Login
                 </button>
+                <button
+                  className="btn btn-secondary"
+                  style={{ marginLeft: '10px', borderRadius: '7px' }}
+                  onClick={() => setShowVirtualKeyboard(!showVirtualKeyboard)}
+                >
+                  Virtual Keyboard
+                </button>
               </form>
               <div className="forgot-password mt-4" style={{ marginTop: '10px' }}>
                 <a href="#">Forgot Password?</a>
               </div>
             </div>
-            <div className="virtual-keyboard">
-              {keyboardLayout.map((row, rowIndex) => (
-                <div key={rowIndex} className="keyboard-row">
-                  {row.map((key, keyIndex) => (
-                    <button
-                      key={keyIndex}
-                      onClick={() => handleKeyPress(key)}
-                      className="keyboard-key"
-                    >
-                      {key}
-                    </button>
-                  ))}
-                </div>
-              ))}
-            </div>
+            {showVirtualKeyboard && (
+              <div className="virtual-keyboard">
+                {keyboardLayout.map((row, rowIndex) => (
+                  <div key={rowIndex} className="keyboard-row">
+                    {row.map((key, keyIndex) => (
+                      <button
+                        key={keyIndex}
+                        onClick={() => handleKeyPress(key)}
+                        className="keyboard-key"
+                      >
+                        {key}
+                      </button>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
