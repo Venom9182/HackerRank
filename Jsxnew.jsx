@@ -101,26 +101,26 @@ const Login = (props) => {
                 <a href="#">Forgot Password?</a>
               </div>
             </div>
-            {showVirtualKeyboard && (
-              <div className="virtual-keyboard">
-                {keyboardLayout.map((row, rowIndex) => (
-                  <div key={rowIndex} className="keyboard-row">
-                    {row.map((key, keyIndex) => (
-                      <button
-                        key={keyIndex}
-                        onClick={() => handleKeyPress(key)}
-                        className="keyboard-key"
-                      >
-                        {key}
-                      </button>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         </div>
       </div>
+      {showVirtualKeyboard && (
+        <div className="virtual-keyboard">
+          {keyboardLayout.map((row, rowIndex) => (
+            <div key={rowIndex} className="keyboard-row">
+              {row.map((key, keyIndex) => (
+                <button
+                  key={keyIndex}
+                  onClick={() => handleKeyPress(key)}
+                  className="keyboard-key"
+                >
+                  {key}
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
