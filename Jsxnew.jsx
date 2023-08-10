@@ -6,7 +6,7 @@ const Login = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showVirtualKeyboard, setShowVirtualKeyboard] = useState(false);
-  
+  const [isUpperCase, setIsUpperCase] = useState(false);
 
   const handleKeyPress = (key) => {
     if (key === 'clear') {
@@ -16,8 +16,9 @@ const Login = (props) => {
       setUsername(username.slice(0, -1));
       setPassword(password.slice(0, -1));
     } else {
-      setUsername(username + key);
-      setPassword(password + key);
+      const typedKey = isUpperCase ? key.toUpperCase() : key;
+      setUsername(username + typedKey);
+      setPassword(password + typedKey);
     }
   };
 
@@ -25,7 +26,7 @@ const Login = (props) => {
     ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'backspace'],
-    ['z', 'x', 'c', 'v', 'b', 'n', 'm', 'clear'],
+    ['upperCase', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'clear', 'space'],
   ];
 
   const handleSubmit = (e) => {
@@ -107,19 +108,29 @@ const Login = (props) => {
       </div>
       {showVirtualKeyboard && (
         <div className="virtual-keyboard">
-          {keyboardLayout.map((row, rowIndex) => (
-            <div key={rowIndex} className="keyboard-row">
-              {row.map((key, keyIndex) => (
-                <button
-                  key={keyIndex}
-                  onClick={() => handleKeyPress(key)}
-                  className="keyboard-key"
-                >
-                  {key}
-                </button>
-              ))}
+          <div className="keyboard-row">
+            {keyboardLayout.map((row, rowIndex) => (
+              <div key={rowIndex} className="keyboard-row">
+                {row.map((key, keyIndex) => (
+                  <button
+                    key={keyIndex}
+                    onClick={() => handleKeyPress(key)}
+                    className="keyboard-key"
+                  >
+                    {key === 'upperCase' ? (isUpperCase ? 'abc' : 'ABC') : key}
+                  </button>
+                ))}
+              </div>
+            ))}
+            <div>
+              <button
+                onClick={() => setIsUpperCase(!isUpperCase)}
+                className="keyboard-key"
+              >
+                {isUpperCase ? 'Lowercase' : 'Uppercase'}
+              </button>
             </div>
-          ))}
+          </div>
         </div>
       )}
     </div>
