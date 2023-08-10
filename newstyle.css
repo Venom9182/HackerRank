@@ -1,0 +1,162 @@
+.contact-button {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 140px;
+    height: 50px;
+    padding: 5px 15px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    /* Add a white border */
+    font-size: 16px;
+    color: #fff;
+    /* Set text color to white */
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    /* Add transition effects */
+}
+
+.contact-button:hover {
+    background-color: #007bff;
+    /* Change background color on hover */
+    color: #fff;
+    /* Change text color on hover */
+    text-decoration: none;
+    /* Remove underline on hover */
+}
+.virtual-keyboard {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    width: 50%;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 20px;
+    border-top: 20px solid #ddd;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.keyboard-key {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 3px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.keyboard-key:hover {
+    background-color: #ddd;
+}
+
+.keyboard-key:active {
+    background-color: #ccc;
+}
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('./bgpicnew.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.login-container {
+    max-width: 300px;
+    max-height: 600px;
+    margin: 100px auto;
+    margin-top: 10px;
+    margin-right: 80px;
+    padding: 35px;
+    background-color: #fff;
+    border-radius: 70px;
+    box-shadow: 0 0 50px rgba(243, 242, 242, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 80%;
+    padding: 10px;
+    padding-left: 10px;
+    /* To create space for the user and lock icons */
+    border: 3px solid #ccc;
+    border-radius: 20px;
+}
+
+.form-group .icon {
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    left: 10px;
+    font-size: 18px;
+}
+
+.forgot-password {
+    text-align: center;
+}
+
+.forgot-password a {
+    color: #007bff;
+}
+
+.btn-primary{
+    color:#fff;
+    border: 'none';
+}
+
+.logo-container {
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+.logo-container img {
+    max-width: 200px;
+    animation-name: circular;
+
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes circular {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+
+}
+
+.welcome-message {
+    text-align: left;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 80px;
+    margin-left: 40px;
+    margin-top: 140px;
+}
