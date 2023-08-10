@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Styles.css'; // Import your CSS file
 import logoImg from './logo f 1.png';
 
 const Login = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [showVirtualKeyboard, setShowVirtualKeyboard] = useState(false);
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+  const [keyboardPosition, setKeyboardPosition] = useState({ x: 0, y: 0 });
 
   const handleKeyPress = (key) => {
     if (key === 'clear') {
@@ -27,6 +28,31 @@ const Login = (props) => {
     ['z', 'x', 'c', 'v', 'b', 'n', 'm', 'clear'],
   ];
 
+  const handleKeyboardButtonClick = (key) => {
+    handleKeyPress(key);
+  };
+
+  const handleToggleKeyboard = () => {
+    setKeyboardVisible(!keyboardVisible);
+  };
+
+  const handleMouseDown = (e) => {
+    if (keyboardVisible) {
+      const offsetX = e.clientX - keyboardPosition.x;
+      const offsetY = e.clientY - keyboardPosition.y;
+      setKeyboardPosition({ x: offsetX, y: offsetY });
+    }
+  };
+
+  useEffect(() => {
+    if (keyboardVisible) {
+      document.addEventListener('mousemove', handleMouseDown);
+      return () => {
+        document.removeEventListener('mousemove', handleMouseDown);
+      };
+    }
+  }, [keyboardVisible]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can use the 'username' and 'password' states here for further processing
@@ -41,9 +67,9 @@ const Login = (props) => {
         <div className="row">
           <div className="col-md-2">
             <div className="logo-container">
-              <img src={logoImg} alt="Standard Chartered Logo" className="img-fluid" />
+              <img src={logoImg}  alt="Standard Chartered Logo" className="img-fluid" />
             </div>
-            <div className="welcome-message" style={{ color: 'white', float: 'left' }}>
+            <div className="welcome-message" style={{ color: 'white', float: 'left'}}>
               Welcome to the RW Tools
             </div>
           </div>
@@ -58,13 +84,16 @@ const Login = (props) => {
                     Username:
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     id="username"
                     name="username"
                     placeholder="Enter Username"
                     className="form-control"
+                    min="0"
+                    max="999999999"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange = {(e) => setUsername(e.target.value)}
+                    onInput={(e) => (e.target.value = e.target.value.replace(/[^0-9]/g, ''))}
                     required
                   />
                 </div>
@@ -81,44 +110,59 @@ const Login = (props) => {
                       placeholder="🔐   Enter Password"
                       className="form-control"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange = {(e) => setPassword(e.target.value)}
                       required
                     />
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ width: '200px', height: '40px', backgroundColor: '#007bff', borderRadius: '7px' }}>
+                <button type="submit" className="btn btn-primary" style={{ width: '200px', height: '40px', backgroundColor : '#007bff', borderRadius : '7px'}}>
                   Login
                 </button>
-                <button
-                  className="btn btn-secondary"
-                  style={{ marginLeft: '10px', borderRadius: '7px' }}
-                  onClick={() => setShowVirtualKeyboard(!showVirtualKeyboard)}
-                >
+                <button type="button" className="btn btn-secondary ml-2" onClick={handleToggleKeyboard}>
                   Virtual Keyboard
                 </button>
               </form>
-              <div className="forgot-password mt-4" style={{ marginTop: '10px' }}>
+              <div className="forgot-password mt-4" style={{ marginTop: '10px'}}>
                 <a href="#">Forgot Password?</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {showVirtualKeyboard && (
-        <div className="virtual-keyboard">
+      {keyboardVisible && (
+        <div
+          className="virtual-keyboard"
+          style={{
+            position: 'absolute',
+            left: keyboardPosition.x,
+            top: keyboardPosition.y,
+          }}
+        >
           {keyboardLayout.map((row, rowIndex) => (
             <div key={rowIndex} className="keyboard-row">
               {row.map((key, keyIndex) => (
                 <button
                   key={keyIndex}
-                  onClick={() => handleKeyPress(key)}
                   className="keyboard-key"
+                  onClick={() => handleKeyboardButtonClick(key)}
                 >
-                  {key}
+                  {key === 'backspace' ? (
+                    <i className="fas fa-backspace" />
+                  ) : key === 'clear' ? (
+                    <i className="fas fa-times" />
+                  ) : (
+                    key
+                  )}
                 </button>
               ))}
             </div>
           ))}
+          <button className="keyboard-close" onClick={handleToggleKeyboard}>
+            <i className="fas fa-times" />
+          </button>
+          <button className="keyboard-uppercase" onClick={() => console.log("Uppercase/Lowercase toggle")}>
+            <i className="fas fa-sort" />
+          </button>
         </div>
       )}
     </div>
