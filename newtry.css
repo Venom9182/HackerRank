@@ -1,0 +1,42 @@
+.contact-us-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-heading {
+  font-size: 36px;
+  margin-top: 20px;
+}
+
+.contact-options {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.contact-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-icon {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.start-chat-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.start-chat-button:hover {
+  background-color: #0056b3;
+}
