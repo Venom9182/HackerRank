@@ -1,0 +1,79 @@
+/* Chatbox.css */
+
+.chatbox {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 240px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+.chatbox-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbox-title {
+  font-weight: bold;
+}
+
+.chatbox-close-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.chatbox-messages {
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.chatbox-message {
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.chatbox-message.user {
+  background-color: #f2f2f2;
+  align-self: flex-end;
+}
+
+.chatbox-message.agent {
+  background-color: #d4edda;
+  align-self: flex-start;
+}
+
+.chatbox-input {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.chatbox-input input {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 0;
+}
+
+.chatbox-input button {
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
